@@ -26,6 +26,6 @@ class Category extends Model
 
     public function posts()
     {
-        return $this->belongsToMany(Author::class, 'post_category', 'category_id', 'post_id');
+        return $this->belongsToMany(Author::class, 'post_category', 'category_id', 'post_id')->withPivot('post_id', 'category_id');
     }
 }

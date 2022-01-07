@@ -48,15 +48,6 @@ class PostController extends Controller
     }
 
     /**
-     * Show all posts as JSON Response.
-     */
-    public function get()
-    {
-        $posts = Post::with('categories')->get();
-        return response()->json([$posts]);
-    }
-
-    /**
      * Edit specific post
      */
     public function edit(Request $request, $id)
