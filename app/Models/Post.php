@@ -29,4 +29,9 @@ class Post extends Model
     {
         return $this->belongsToMany(Category::class, 'post_category', 'post_id', 'category_id')->withPivot('post_id', 'category_id');
     }
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

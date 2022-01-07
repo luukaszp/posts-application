@@ -15,12 +15,12 @@ class PostCategory extends Migration
     {
         Schema::create('post_category', function (Blueprint $table) {
                 $table->primary(['post_id','category_id']);
-                $table->unsignedInteger('post_id');
+                $table->unsignedBigInteger('post_id');
                 $table->foreign('post_id')
                     ->references('id')
                     ->on('posts')
                     ->onDelete('cascade');
-                $table->unsignedInteger('category_id');
+                $table->unsignedBigInteger('category_id');
                 $table->foreign('category_id')
                     ->references('id')
                     ->on('categories')
