@@ -30,3 +30,7 @@ Route::prefix('categories')->group( function () {
     Route::get('/create', [CategoryController::class, 'create']);
     Route::post('/store', [CategoryController::class, 'store']);
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
