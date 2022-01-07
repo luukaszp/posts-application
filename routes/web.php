@@ -19,16 +19,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('posts')->group( function () {
-    Route::get('/create', [PostController::class, 'create']);
-    Route::post('/store', [PostController::class, 'store']);
-    Route::get('/{id}', [PostController::class, 'showPost']);
-    Route::put('/{id}', [PostController::class, 'edit']);
-});
+Route::group(['middleware' => ['roles']], function () {
+    Route::prefix('posts')->group( function () {
+        Route::get('/create', [PostController::class, 'create']);
+        Route::post('/store', [PostController::class, 'store']);
+        Route::get('/{id}', [PostController::class, 'showPost'])->middleware('admin');;
+        Route::put('/{id}', [PostController::class, 'edit'])->middleware('admin');;
+    });
 
-Route::prefix('categories')->group( function () {
-    Route::get('/create', [CategoryController::class, 'create']);
-    Route::post('/store', [CategoryController::class, 'store']);
+    Route::prefix('categories')->group( function () {
+        Route::get('/create', [CategoryController::class, 'create']);
+        Route::post('/store', [CategoryController::class, 'store']);
+    });
 });
 
 Auth::routes();
