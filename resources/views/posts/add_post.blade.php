@@ -3,7 +3,7 @@
 @section('content')
 <div class="container" style="text-align: center; width: 450px">
     <div style="font-size: 24px; font-weight: bold">Dodawanie postu</div>
-    <form method="POST" action="/posts/add">
+    <form method="POST" action="/posts/store">
         @csrf
 
         <div class="form-group" style="padding-bottom: 10px">
@@ -30,8 +30,7 @@
         <div class="form-group" style="padding-bottom: 10px">
             <label for="category">Kategoria</label>
             <div>
-                <select class="form-select" id="category" name="category" type="text" aria-label=".form-select" name="category"
-                    required>
+                <select class="form-select" id="category" name="category[]" multiple required>
                     @forelse($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @empty
