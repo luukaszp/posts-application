@@ -21,11 +21,11 @@ Route::get('/', function () {
 
 Route::prefix('posts')->group( function () {
     Route::get('/create', [PostController::class, 'create']);
-    Route::post('/add', [PostController::class, 'add']);
+    Route::post('/store', [PostController::class, 'store']);
     Route::put('/{id}', [PostController::class, 'edit']);
 });
 
 Route::prefix('categories')->group( function () {
     Route::get('/create', [CategoryController::class, 'create']);
-    Route::post('/add', [CategoryController::class, 'add']);
+    Route::post('/store', [CategoryController::class, 'store']);
 });
