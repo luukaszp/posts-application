@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('posts')->group( function () {
+    Route::get('/create', [PostController::class, 'create']);
+    Route::post('/add', [PostController::class, 'add']);
+    Route::put('/{id}', [PostController::class, 'edit']);
+});
+
+Route::prefix('categories')->group( function () {
+    Route::get('/create', [CategoryController::class, 'create']);
+    Route::post('/add', [CategoryController::class, 'add']);
 });
