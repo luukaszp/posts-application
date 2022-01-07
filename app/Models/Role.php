@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Role extends Model
 {
     use HasFactory;
 
     /**
      * @var string
      */
-    protected $table = 'categories';
+    protected $table = 'roles';
 
 
     /**
@@ -24,8 +24,8 @@ class Category extends Model
         'name'
     ];
 
-    public function posts()
+    public function users()
     {
-        return $this->belongsToMany(Post::class, 'post_category', 'category_id', 'post_id')->withPivot('post_id', 'category_id');
+        return $this->belongsToMany(User::class, 'role_user', 'role_id', 'user_id');
     }
 }
