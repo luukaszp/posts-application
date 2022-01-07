@@ -8,7 +8,7 @@ use App\Models\Category;
 class PostController extends Controller
 {
     /**
-     * Display form with categories
+     * Display form with categories to add new post
      */
     public function create()
     {

@@ -18,7 +18,7 @@
     <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
 </head>
 
-<body>
+<body style="padding-top: 105px">
     <div id="app">
         <main>
             @yield('content')
