@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::prefix('posts')->group( function () {
     Route::get('/create', [PostController::class, 'create']);
     Route::post('/store', [PostController::class, 'store']);
+    Route::get('/{id}', [PostController::class, 'showPost']);
     Route::put('/{id}', [PostController::class, 'edit']);
 });
 
